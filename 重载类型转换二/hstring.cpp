@@ -31,10 +31,40 @@ void hstring::CopyStrs(char* dest, const char* source)
 
 }
 
-hstring::hstring() {
-	usmlen = 0x32;//字符串空间
-	uslen = 0;//字符串长度
+hstring::hstring(char clen) {
+	usmlen = clen;//字符串空间
+	uslen = 1;//字符串长度
 	cstr = new char[usmlen];
+	std::cout << "类被构造";
+}
+
+hstring::hstring(int val) :hstring()
+{
+	char str[0x20]{};
+	int len{ 0x1F };
+	bool bzs = val >= 0;
+	val = val * (bzs * 2 - 1);//val= 0*2-1=0-1;1*2-1=1;
+	do
+	{
+		str[--len] = val % 10 + 48;
+	} while (val = val / 10);
+
+	str[len = len - 1 * (1 - bzs)] = '-' * (bzs + 1) * (1 - bzs) + str[len] * bzs;
+	unsigned short slen = uslen + 0x20 - len - 1;
+
+
+	if (slen > usmlen)
+	{
+		char* lstr = cstr;
+		cstr = new char[slen];
+		usmlen = slen;
+		memcpy(cstr, lstr, uslen);
+		delete[] cstr;
+	}
+	memcpy(cstr + uslen - 1, str + len, 0x20 - len);
+	uslen = slen;//字符串长度修正;
+	//return *this;
+
 
 }
 
@@ -61,6 +91,11 @@ hstring& hstring::operator<<(const hstring& str) {
 }
 
 hstring& hstring::operator+(const hstring& str) {
+	return *this << str;
+}
+
+hstring& hstring::operator+(const hstring&& str)
+{
 	return *this << str;
 }
 
@@ -137,7 +172,7 @@ hstring& hstring::operator+(float val)
 
 hstring::operator int()
 {
-	
+
 	int val{ 0 };
 	int i{ cstr[0] == '-' };
 	while (cstr[i] >= '0' && cstr[i] <= '9')

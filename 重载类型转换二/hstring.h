@@ -18,8 +18,8 @@ public:
 		return cstr;
 	}
 	//hstring();
-	hstring();
-
+	hstring(char clen=0x32);
+	hstring(int val);
 	~hstring();
 	hstring(const char* str);//利用c字符串来构造hstring
 	hstring(const hstring& str);//利用hstring 来构造hstring
@@ -28,6 +28,8 @@ public:
 	  //hstring& operator=(const long long &value);//实现longlong类型
 	hstring& operator<<(const hstring& str);
 	hstring& operator+(const hstring& str);
+	hstring& operator+(const hstring&& str);
+
 	//hstring& operator
 
 	//bool ResetMemory(unsigned short);//重新设定缓冲区的大小
@@ -41,7 +43,7 @@ public:
 	hstring& operator+(unsigned val);
 	hstring& operator+(float val);
 
-	operator int();
+	explicit operator int();
 };
 std::ostream& operator<<(std::ostream& _cout, hstring&& _str);
 std::istream& operator>>(std::istream& _cin, hstring& _str);
