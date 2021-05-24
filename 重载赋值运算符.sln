@@ -9,6 +9,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "重载下标运算符", "�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "重载运算符()", "重载运算符()\重载运算符().vcxproj", "{A447BDE7-F16C-48D4-A36C-A1FA695FE9FF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "重载二元运算符", "重载二元运算符\重载二元运算符.vcxproj", "{F175127C-B808-4570-B870-B3B448A7A407}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "重载类型转换‘", "重载类型转换‘\重载类型转换‘.vcxproj", "{EAFF8E50-2204-4CFB-98DD-FFAD6781DD22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +45,22 @@ Global
 		{A447BDE7-F16C-48D4-A36C-A1FA695FE9FF}.Release|x64.Build.0 = Release|x64
 		{A447BDE7-F16C-48D4-A36C-A1FA695FE9FF}.Release|x86.ActiveCfg = Release|Win32
 		{A447BDE7-F16C-48D4-A36C-A1FA695FE9FF}.Release|x86.Build.0 = Release|Win32
+		{F175127C-B808-4570-B870-B3B448A7A407}.Debug|x64.ActiveCfg = Debug|x64
+		{F175127C-B808-4570-B870-B3B448A7A407}.Debug|x64.Build.0 = Debug|x64
+		{F175127C-B808-4570-B870-B3B448A7A407}.Debug|x86.ActiveCfg = Debug|Win32
+		{F175127C-B808-4570-B870-B3B448A7A407}.Debug|x86.Build.0 = Debug|Win32
+		{F175127C-B808-4570-B870-B3B448A7A407}.Release|x64.ActiveCfg = Release|x64
+		{F175127C-B808-4570-B870-B3B448A7A407}.Release|x64.Build.0 = Release|x64
+		{F175127C-B808-4570-B870-B3B448A7A407}.Release|x86.ActiveCfg = Release|Win32
+		{F175127C-B808-4570-B870-B3B448A7A407}.Release|x86.Build.0 = Release|Win32
+		{EAFF8E50-2204-4CFB-98DD-FFAD6781DD22}.Debug|x64.ActiveCfg = Debug|x64
+		{EAFF8E50-2204-4CFB-98DD-FFAD6781DD22}.Debug|x64.Build.0 = Debug|x64
+		{EAFF8E50-2204-4CFB-98DD-FFAD6781DD22}.Debug|x86.ActiveCfg = Debug|Win32
+		{EAFF8E50-2204-4CFB-98DD-FFAD6781DD22}.Debug|x86.Build.0 = Debug|Win32
+		{EAFF8E50-2204-4CFB-98DD-FFAD6781DD22}.Release|x64.ActiveCfg = Release|x64
+		{EAFF8E50-2204-4CFB-98DD-FFAD6781DD22}.Release|x64.Build.0 = Release|x64
+		{EAFF8E50-2204-4CFB-98DD-FFAD6781DD22}.Release|x86.ActiveCfg = Release|Win32
+		{EAFF8E50-2204-4CFB-98DD-FFAD6781DD22}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

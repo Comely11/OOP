@@ -81,13 +81,13 @@ const char& hstring::operator()()
 }
 hstring hstring::operator()(const unsigned short start, const unsigned short legth)const
 {
-	if (start > uslen-2)
+	if (start > uslen - 2)
 	{
 		return hstring("");
 	}
 	unsigned slen = start + legth > uslen - 1 ? uslen - start - 1 : legth;
 	char* newstr = new char[slen + 1];
-	memcpy(newstr, cstr+start, slen+1);
+	memcpy(newstr, cstr + start, slen + 1);
 	newstr[slen];
 	return hstring(newstr);
 }
@@ -105,9 +105,9 @@ hstring& hstring::operator+(int val)
 	} while (val = val / 10);
 
 	str[len = len - 1 * (1 - bzs)] = '-' * (bzs + 1) * (1 - bzs) + str[len] * bzs;
-	unsigned short slen = uslen + 0x20 - len-1;
+	unsigned short slen = uslen + 0x20 - len - 1;
 
-	
+
 	if (slen > usmlen)
 	{
 		char* lstr = cstr;
@@ -116,7 +116,7 @@ hstring& hstring::operator+(int val)
 		memcpy(cstr, lstr, uslen);
 		delete[] cstr;
 	}
-	memcpy(cstr + uslen - 1, str+len,0x20-len);
+	memcpy(cstr + uslen - 1, str + len, 0x20 - len);
 	uslen = slen;//×Ö·û´®³¤¶ÈĞŞÕı;
 	return *this;
 
@@ -136,7 +136,7 @@ hstring& hstring::operator+(float val)
 hstring::~hstring() {
 	if (cstr != nullptr)delete[]cstr;
 }//½áÊø¼´É¾³ıÄÚ´æ
-std::ostream& operator<<(std::ostream& _cout, hstring&&_str)
+std::ostream& operator<<(std::ostream& _cout, hstring&& _str)
 {
 	_cout << _str.c_cstr();
 	return _cout;
@@ -144,7 +144,7 @@ std::ostream& operator<<(std::ostream& _cout, hstring&&_str)
 
 std::ostream& operator<<(std::ostream& _cout, hstring& _str)
 {
-	_cout << _str.c_cstr(); 
+	_cout << _str.c_cstr();
 	return _cout;
 }
 std::istream& operator>>(std::istream& _cin, hstring& _str)

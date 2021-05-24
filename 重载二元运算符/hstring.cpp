@@ -81,72 +81,26 @@ const char& hstring::operator()()
 }
 hstring hstring::operator()(const unsigned short start, const unsigned short legth)const
 {
-	if (start > uslen-2)
+	if (start > uslen - 2)
 	{
 		return hstring("");
 	}
 	unsigned slen = start + legth > uslen - 1 ? uslen - start - 1 : legth;
 	char* newstr = new char[slen + 1];
-	memcpy(newstr, cstr+start, slen+1);
+	memcpy(newstr, cstr + start, slen + 1);
 	newstr[slen];
 	return hstring(newstr);
-}
-
-hstring& hstring::operator+(int val)
-{
-	//long long val = -1;
-	char str[0x20]{};
-	int len{ 0x1F };
-	bool bzs = val >= 0;
-	val = val * (bzs * 2 - 1);//val= 0*2-1=0-1;1*2-1=1;
-	do
-	{
-		str[--len] = val % 10 + 48;
-	} while (val = val / 10);
-
-	str[len = len - 1 * (1 - bzs)] = '-' * (bzs + 1) * (1 - bzs) + str[len] * bzs;
-	unsigned short slen = uslen + 0x20 - len-1;
-
-	
-	if (slen > usmlen)
-	{
-		char* lstr = cstr;
-		cstr = new char[slen];
-		usmlen = slen;
-		memcpy(cstr, lstr, uslen);
-		delete[] cstr;
-	}
-	memcpy(cstr + uslen - 1, str+len,0x20-len);
-	uslen = slen;//字符串长度修正;
-	return *this;
-
-
-}
-
-hstring& hstring::operator+(unsigned val)
-{
-	// TODO: 在此处插入 return 语句
-}
-
-hstring& hstring::operator+(float val)
-{
-	// TODO: 在此处插入 return 语句
 }
 
 hstring::~hstring() {
 	if (cstr != nullptr)delete[]cstr;
 }//结束即删除内存
-std::ostream& operator<<(std::ostream& _cout, hstring&&_str)
+std::ostream& operator<<(std::ostream& _cout, hstring& _str)
 {
 	_cout << _str.c_cstr();
 	return _cout;
 }
 
-std::ostream& operator<<(std::ostream& _cout, hstring& _str)
-{
-	_cout << _str.c_cstr(); 
-	return _cout;
-}
 std::istream& operator>>(std::istream& _cin, hstring& _str)
 {
 	char _sRead[0xff]{};

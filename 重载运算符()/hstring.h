@@ -28,15 +28,23 @@ public:
 		//hstring& operator=(const long long &value);//实现longlong类型
 	  hstring& operator<<(const hstring& str);
 	  hstring& operator+(const hstring& str);
+	  //hstring& operator
 
 	  //bool ResetMemory(unsigned short);//重新设定缓冲区的大小
 	  //unsigned short GetMemory()//获取当前缓冲区大小
 	  //unsigned short GetLength()//获取当前字符串长度
 	  const char& operator[](const unsigned short index)const;
 	  //const char& operator[](const char*key)const;返回key后面的内容
+	  const char& operator()();
+	hstring operator()(const unsigned short start,const unsigned short legth)const;//截取字符串
+	hstring& operator+(int val);
+	hstring& operator+(unsigned val);
+	hstring& operator+(float val);
+
 };
-std::ostream& operator<<(std::ostream& _cout, hstring& _str);
+std::ostream& operator<<(std::ostream& _cout, hstring&& _str);
 std::istream& operator>>(std::istream& _cin, hstring& _str);
+std::ostream& operator<<(std::ostream& _cout, hstring& _str);
 
 
 #endif
